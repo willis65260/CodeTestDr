@@ -8,7 +8,7 @@ interface Usuario {
 interface Noticia {
   tipo: string;
   description: string;
-  usuario: String;
+  usuario: string;
 }
 
 interface Idioma {
