@@ -8,6 +8,25 @@ interface Usuario {
 interface Noticia {
   tipo: string;
   description: string;
+  usuario:string;
+}
+interface Idioma {
+  vistaU: string;
+  noticias: string;
+  vista: string;
+  VEC: string;
+  userCreated: string;
+  userDeleted: string;
+  userModified: string;
+  vButton: string;
+  eButton: string;
+  dButton: string;
+  cButton: string;
+  sButton: string;
+  xButton: string;
+  name: string;
+  namePH: string;
+  actions: string;
 }
 
 interface NewViewProps {
@@ -18,6 +37,8 @@ interface NewViewProps {
   setUsuarios: React.Dispatch<React.SetStateAction<Usuario[]>>;
   noticias: Noticia[];
   setNoticias: (noticias: Noticia[]) => void;
+  idioma:Idioma,
+  setIdioma:React.Dispatch<React.SetStateAction<Idioma>>
 }
 
 export const NewView: React.FC<NewViewProps> = ({
@@ -28,6 +49,8 @@ export const NewView: React.FC<NewViewProps> = ({
   setUsuarios,
   noticias,
   setNoticias,
+  idioma,
+  setIdioma
 }) => {
   return (
     <div className="row h-50 overflow-y-scroll p-2">
@@ -35,13 +58,13 @@ export const NewView: React.FC<NewViewProps> = ({
         <div className="container">
           <div className="row">
             <div className="col">
-              <h3>View</h3>
+              <h3>{idioma.vista}</h3>
               <table className="table table-dark">
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Nombre</th>
-                    <th>Actions</th>
+                    <th>{idioma.name}</th>
+                    <th>{idioma.actions}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,8 +73,8 @@ export const NewView: React.FC<NewViewProps> = ({
                       <th scope="row">{i.id}</th>
                       <td>{i.nombre}</td>
                       <td>
-                        <button type="button" className="btn btn-primary mx-2">
-                          View
+                        <button type="button" className="btn btn-primary mx-2" >
+                          {idioma.vButton}
                         </button>
                         <button
                           type="button"
@@ -62,7 +85,7 @@ export const NewView: React.FC<NewViewProps> = ({
                             setCreate(false);
                           }}
                         >
-                          Edit
+                          {idioma.eButton}
                         </button>
                         <button
                           type="button"
@@ -76,7 +99,8 @@ export const NewView: React.FC<NewViewProps> = ({
                               ...noticias,
                               {
                                 tipo: "danger",
-                                description: `Se eliminó el usuario ${i.nombre}`,
+                                usuario: i.nombre,
+                                description:""
                               },
                             ]);
                             setNombre("Please Enter New User");
@@ -84,7 +108,7 @@ export const NewView: React.FC<NewViewProps> = ({
                             setCreate(true);
                           }}
                         >
-                          Delete
+                          {idioma.dButton}
                         </button>
                       </td>
                     </tr>

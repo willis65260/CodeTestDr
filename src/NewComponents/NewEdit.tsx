@@ -8,6 +8,26 @@ interface Usuario {
 interface Noticia {
   tipo: string;
   description: string;
+  usuario: String;
+}
+
+interface Idioma {
+  vistaU: string;
+  noticias: string;
+  vista: string;
+  VEC: string;
+  userCreated: string;
+  userDeleted: string;
+  userModified: string;
+  vButton: string;
+  eButton: string;
+  dButton: string;
+  cButton: string;
+  sButton: string;
+  xButton: string;
+  name: string;
+  namePH: string;
+  actions: string;
 }
 
 interface NewEditProps {
@@ -21,6 +41,7 @@ interface NewEditProps {
   setNoticias: React.Dispatch<React.SetStateAction<Noticia[]>>;
   create: boolean;
   setCreate: React.Dispatch<React.SetStateAction<boolean>>;
+  idioma: Idioma;
 }
 
 export const NewEdit: React.FC<NewEditProps> = ({
@@ -34,6 +55,7 @@ export const NewEdit: React.FC<NewEditProps> = ({
   setNoticias,
   create,
   setCreate,
+  idioma,
 }) => {
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -43,15 +65,14 @@ export const NewEdit: React.FC<NewEditProps> = ({
     usuarios.forEach((i) => {
       if (i.id == id) {
         setNombre(i.nombre);
-        console.log("se encontró el nombre" + i.nombre);
       }
     });
   }, [id]);
   return (
     <div className="row h-50 p-2">
       <div className="grid text-center helper my-2">
-        <h3>View/Edit/Create</h3>
-        <br/>
+        <h3>{idioma.VEC}</h3>
+        <br />
 
         <div className="g-start-2 helper2 my-2">
           <div className="input-group">
@@ -70,7 +91,7 @@ export const NewEdit: React.FC<NewEditProps> = ({
           </div>
           <div className="input-group my-2">
             <span className="input-group-text" id="basic-addon1">
-              Nombre
+              {idioma.name}
             </span>
             <input
               type="text"
@@ -107,10 +128,11 @@ export const NewEdit: React.FC<NewEditProps> = ({
                   ...noticias,
                   {
                     tipo: "warning",
-                    description: "Se editó el usuario " + nombre,
+                    usuario: nombre,
+                    description: "",
                   },
                 ]);
-              } else if (nombre !== "Please Enter New User") {
+              } else if (nombre !== idioma.namePH) {
                 setUsuarios([
                   ...usuarios,
                   {
@@ -127,27 +149,28 @@ export const NewEdit: React.FC<NewEditProps> = ({
                   ...noticias,
                   {
                     tipo: "success",
-                    description: "Se creó el usuario " + nombre,
+                    usuario: nombre,
+                    description: "",
                   },
                 ]);
-                setNombre("Please Enter New User");
+                setNombre(idioma.namePH);
                 setId("S/N");
                 setCreate(true);
               }
             }}
           >
-            {create ? "Create" : "Save"}
+            {create ? idioma.cButton : idioma.sButton}
           </button>
           <button
             type="button"
             className="btn btn-primary mx-2"
             onClick={() => {
-              setNombre("Please Enter New User");
+              setNombre(idioma.namePH);
               setId("S/N");
               setCreate(true);
             }}
           >
-            Cancel
+            {idioma.xButton}
           </button>
         </div>
       </div>
