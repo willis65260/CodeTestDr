@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CodeTestDr/static/css/main.1097cc47.css",
-    "main.js": "/CodeTestDr/static/js/main.47216e06.js",
+    "main.js": "/CodeTestDr/static/js/main.612f1261.js",
     "static/js/453.074c6692.chunk.js": "/CodeTestDr/static/js/453.074c6692.chunk.js",
     "index.html": "/CodeTestDr/index.html",
     "main.1097cc47.css.map": "/CodeTestDr/static/css/main.1097cc47.css.map",
-    "main.47216e06.js.map": "/CodeTestDr/static/js/main.47216e06.js.map",
+    "main.612f1261.js.map": "/CodeTestDr/static/js/main.612f1261.js.map",
     "453.074c6692.chunk.js.map": "/CodeTestDr/static/js/453.074c6692.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1097cc47.css",
-    "static/js/main.47216e06.js"
+    "static/js/main.612f1261.js"
   ]
 }
