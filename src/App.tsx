@@ -126,6 +126,10 @@ const App: React.FC<AppProps> = ({ identificador }) => {
     setNoticias(updatedNoticias);
     }, [idioma]);
 
+    useEffect(() => {
+      if(identificador!="S/N")
+        setCreate(false)
+      }, []);
 
   return (
     <div className="App">
