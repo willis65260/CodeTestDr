@@ -20,6 +20,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App identificador={"S/N"}/>} />
         <Route path="/:id" element={<AppWrapper />} />
+        <Route path="/CodeTestDr/" element={<App identificador={"S/N"}/>} />
         <Route path="/CodeTestDr/:id" element={<AppWrapper />} />
       </Routes>
     </BrowserRouter>
